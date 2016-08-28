@@ -5,7 +5,7 @@ var topicsDisplayLimit = 10;
 
 app.controller( "topicsController", function( $scope, $uibModal, $http ){
     //console.log(1);
-    $http.get( '/tests/topic' ).then( function( res ) {
+    $http.get( 'http://techassesment.herokuapp.com/tests/topic' ).then( function( res ) {
         //console.log(res);
         var topics = res.data,
             counter = 0;
@@ -103,7 +103,7 @@ app.controller( "modalInstanceController", function( $scope, $uibModalInstance, 
         }
 console.log('/tests/'+$scope.topicName+'/'+difficulty);
 
-        $http.get( '/tests/'+$scope.topicName+'/'+difficulty ).then( function( res ) {
+        $http.get( 'http://techassesment.herokuapp.com/tests/'+$scope.topicName+'/'+difficulty ).then( function( res ) {
             console.log('======10',res.data.questions,'/tests/'+$scope.topicName+'/'+difficulty);
             sampleQuestions = res.data.questions;
             $uibModalInstance.close();

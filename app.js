@@ -75,7 +75,16 @@ var express = require('express'),
     url = 'mongodb://saravanan86:knight1!@ds017246.mlab.com:17246/techassesment',
     app = express();
 
+var allowCrossDomain = function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', 'techaptitude.website.tk');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+  next();
+}
+
 //App router
+app.use(allowCrossDomain);
 app.use( express.static( 'public' ) );
 app.use('/tests', tests);
 
@@ -99,6 +108,9 @@ db.connect( url , function(err) {
   }
 
 });
+
+
+
 
 function getJson(){
 //['Java','.Net','Oracle', 'JavaScript', 'Html5', 'NodeJs', 'ActionScript', 'Objective C', 'Php', 'MongoDb', 'AngularJs', 'Android', 'XML', 'MySql','SqlServer','C#','Selenium', 'Testing', 'Shell Script', 'Linux', 'C++', 'C']
