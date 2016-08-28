@@ -76,7 +76,7 @@ var express = require('express'),
     app = express();
 
 var allowCrossDomain = function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'techaptitude.website.tk');
+  res.header('Access-Control-Allow-Origin', 'http://techaptitude.website.tk');
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
 
